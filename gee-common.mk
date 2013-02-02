@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	alsa.msm8960 \
-	audio_policy.msm8960 \
+	audio_policy.msm8064 \
 	audio.primary.msm8960 \
 	audio.a2dp.default \
 	audio.usb.default \
@@ -184,7 +184,7 @@ PRODUCT_PACKAGES += \
 	power.msm8960
 
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/init.gee-common.bt.sh:system/etc/init.gee-common.bt.sh
+	device/lge/gee-common/init.geehrc.bt.sh:system/etc/init.greehrc.bt.sh \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
@@ -229,7 +229,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=15
+	wifi.supplicant_scan_interval=45 \
+	persist.radio.kickstart=on
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -251,4 +252,3 @@ PRODUCT_COPY_FILES += \
 	system/extras/bugmailer/send_bug:system/bin/send_bug
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-
