@@ -57,7 +57,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/init.geehrc.rc:root/init.geehrc.rc \
 	device/lge/gee-common/init.geehrc.usb.rc:root/init.geehrc.usb.rc \
-	device/lge/gee-common/recovery.fstab:root/fstab.geehrc \
 	device/lge/gee-common/ueventd.geehrc.rc:root/ueventd.geehrc.rc \
 	device/lge/gee-common/media_profiles.xml:system/etc/media_profiles.xml \
 	device/lge/gee-common/media_codecs.xml:system/etc/media_codecs.xml
