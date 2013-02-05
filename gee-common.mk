@@ -28,8 +28,8 @@ DEVICE_PACKAGE_OVERLAYS := device/lge/gee-common/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-PRODUCT_PACKAGES := \
-	lights.geehrc
+#PRODUCT_PACKAGES := \
+#	lights.geehrc
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -217,11 +217,8 @@ PRODUCT_PACKAGES += \
 	conn_init \
 	charger_touch
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	rild.libpath=/system/lib/libril-qc-qmi-1.so
-
 PRODUCT_PROPERTY_OVERRIDES += \
-	telephony.lteOnCdmaDevice=0
+	rild.libpath=/system/lib/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
@@ -251,3 +248,4 @@ PRODUCT_COPY_FILES += \
 	system/extras/bugmailer/send_bug:system/bin/send_bug
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
