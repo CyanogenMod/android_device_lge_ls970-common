@@ -195,10 +195,10 @@ on post-fs-data
 
     # LED On/Off synchronization
     chown system system /sys/class/leds/red/device/lock
- # communicate with mpdecision and thermald
-    #mkdir /dev/socket/mpdecision 0770 system system
-    #chmod 2770 /dev/socket/mpdecision
-   
+
+    # communicate with mpdecision and thermald
+    mkdir /dev/socket/mpdecision 0770 system system
+    chmod 2770 /dev/socket/mpdecision
 
     # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 70
@@ -364,11 +364,11 @@ service charger /charger
 service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
     class late_start
 
-#service thermald /system/bin/thermald
-#    class main
+service thermald /system/bin/thermald
+    class main
 
-#service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-#    class main
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class main
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
