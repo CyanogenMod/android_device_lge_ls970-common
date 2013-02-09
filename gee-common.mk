@@ -100,28 +100,32 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/gps.conf:system/etc/gps.conf
 
-# NFC packages
+# NFC packages mako for gee-common
 PRODUCT_PACKAGES += \
-    libnfc-nci \
-    libnfc_nci_jni \
-    nfc_nci.gee-common \
-    NfcNci \
+    libnfc \
+    libnfc_jni \
+    nfc.mako \
+    Nfc \
     Tag \
     com.android.nfc_extras
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := device/lge/gee_sp/nfc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := device/lge/gee_sp/nfc/nfcee_access_debug.xml
 endif
+
+# Commands to migrate prefs from com.android.nfc3 to com.android.nfc
+PRODUCT_COPY_FILES += \
+        packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt
 
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    device/lge/gee-common/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072
@@ -148,7 +152,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += debug.mdpcomp.maxlayer=3
 
-PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -189,7 +192,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
 
 PRODUCT_PACKAGES += \
-	camera.gee-common \
+	camera.geehrc \
 	camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
@@ -225,7 +228,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=45 \
+	wifi.supplicant_scan_interval=60 \
 	persist.radio.kickstart=on
 
 # Enable AAC 5.1 output

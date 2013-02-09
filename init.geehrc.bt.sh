@@ -20,6 +20,8 @@ failed ()
   exit $2
 }
 
+/system/xbin/bash /system/etc/init.bdaddr.sh
+
 # Note that "hci_qcomm_init -e" prints expressions to set the shell variables
 # BTS_DEVICE, BTS_TYPE, BTS_BAUD, and BTS_ADDRESS.
 

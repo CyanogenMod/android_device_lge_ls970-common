@@ -1,6 +1,4 @@
-#!/bin/sh
-
-# Copyright 2012 The Android Open Source Project
+# Copyright (C) 2011 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,17 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# start jb-mr1-dev
-# 477685 = JOO88
-# 521994 = JOP32B
-# end jb-mr1-dev
+LOCAL_PATH := $(call my-dir)
 
-source ../../../common/clear-factory-images-variables.sh
-BUILD=521994
-DEVICE=mako
-PRODUCT=occam
-VERSION=jop32b
-#SRCPREFIX=signed-
-BOOTLOADER=geehrcz10k
-RADIO=m9615a-cefwmazm-2.0.1700.32
-source ../../../common/generate-factory-images-common.sh
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := nfc.mako
+LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_SRC_FILES := nfc_hw.c
+LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_MODULE_TAGS := optional
+LOCAL_CFLAGS += -D$(TARGET_DEVICE)
+
+include $(BUILD_SHARED_LIBRARY)
