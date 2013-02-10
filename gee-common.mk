@@ -28,8 +28,8 @@ DEVICE_PACKAGE_OVERLAYS := device/lge/gee-common/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-#PRODUCT_PACKAGES := \
-#	lights.geehrc
+PRODUCT_PACKAGES := \
+	lights.geehrc
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -104,16 +104,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
-    nfc.mako \
+    nfc.gee-common \
     Nfc \
     Tag \
     com.android.nfc_extras
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/gee_sp/nfc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/lge/gee_sp/nfc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access_debug.xml
 endif
 
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc

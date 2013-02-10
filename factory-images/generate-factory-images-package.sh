@@ -25,6 +25,6 @@ DEVICE=mako
 PRODUCT=occam
 VERSION=jop32b
 #SRCPREFIX=signed-
-BOOTLOADER=geehrcz10k
+BOOTLOADER=makoz10k
 RADIO=m9615a-cefwmazm-2.0.1700.32
 source ../../../common/generate-factory-images-common.sh
