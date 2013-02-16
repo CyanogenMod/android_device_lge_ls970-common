@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# We optimize for cortex-a15 since krait is closer to a15 than a9
+# and slightly benefits in testing done.
+
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mtune=cortex-a15 -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mtune=cortex-a15 -mfloat-abi=softfp
 TARGET_CPU_ABI := armeabi-v7a
@@ -36,13 +39,10 @@ TARGET_NO_BOOTLOADER := true
 # Compiler Optimizations
 ARCH_ARM_HIGH_OPTIMIZATION := true
 
-BOARD_KERNEL_BASE := 0x80200000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
-
 BOARD_USES_ALSA_AUDIO:= true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
+BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -72,8 +72,6 @@ COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
-TARGET_NO_HW_VSYNC := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_NO_SECURE_PLAYBACK
 #BOARD_USES_HGL := true
 #BOARD_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
@@ -81,7 +79,6 @@ TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 TARGET_USES_SF_BYPASS := true
 TARGET_USES_C2D_COMPOSITION := true
-BOARD_HAVE_OLD_ION_API := true
 BOARD_EGL_CFG := device/lge/gee-common/egl.cfg
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
