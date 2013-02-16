@@ -42,6 +42,27 @@ PRODUCT_PACKAGES += \
         VisualizationWallpapers \
         librs_jni
 
+# Init Scripts
+PRODUCT_PACKAGES += \
+    init.lge_dut.bt.sh \
+    init.qcom.audio.sh \
+    init.qcom.bt.sh \
+    init.qcom.coex.sh \
+    init.qcom.efs.sync.sh \
+    init.qcom.ftm_module_out.sh \
+    init.qcom.ftm_module.sh \
+    init.qcom.mdm_links.sh \
+    init.qcom.modem_links.sh \
+    init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
+    init.qcom.thermald_conf.sh \
+    init.qcom.wifi.sh \
+    init.wlan-on-off.sh \
+    thermald-8064.conf \
+    thermald-8930.conf \
+    thermald-8960.conf \
+    vold.fstab    
+
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
 	device/lge/gee-common/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
@@ -55,9 +76,6 @@ PRODUCT_COPY_FILES += \
 	device/lge/gee-common/thermald-gee-common.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/init.geehrc.rc:root/init.geehrc.rc \
-	device/lge/gee-common/init.geehrc.usb.rc:root/init.geehrc.usb.rc \
-	device/lge/gee-common/ueventd.geehrc.rc:root/ueventd.geehrc.rc \
 	device/lge/gee-common/media_profiles.xml:system/etc/media_profiles.xml \
 	device/lge/gee-common/media_codecs.xml:system/etc/media_codecs.xml
 
@@ -66,18 +84,16 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
-	device/lge/gee-common/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
-	device/lge/gee-common/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	device/lge/gee-common/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+	device/lge/gee-common/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
 	device/lge/gee-common/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/gee-common/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
-	device/lge/gee-common/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
-	device/lge/gee-common/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
-	device/lge/gee-common/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+	device/lge/gee-common/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
+	device/lge/gee-common/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/touch_dev.idc:system/usr/idc/touch_dev.idc
+	device/lge/gee-common/touch_dev.idc:system/usr/idc/touch_dev.idc \
+	device/lge/gee-common/osp3-input.idc:system/usr/idc/osp3-input.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -100,11 +116,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/gps.conf:system/etc/gps.conf
 
-# NFC packages mako for gee-common
+# NFC packages geehrc for gee-common
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
-    nfc.gee-common \
+    nfc.geehrc \
     Nfc \
     Tag \
     com.android.nfc_extras
@@ -179,14 +195,15 @@ PRODUCT_PACKAGES += \
 	audio.r_submix.default \
 	libaudio-resampler
 
+
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
 PRODUCT_PACKAGES += \
 	power.msm8960
 
-PRODUCT_COPY_FILES += \
-	device/lge/gee-common/init.geehrc.bt.sh:system/etc/init.greehrc.bt.sh \
+#PRODUCT_COPY_FILES += \
+#	device/lge/gee-common/init.geehrc.bt.sh:system/etc/init.greehrc.bt.sh \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
@@ -207,12 +224,12 @@ PRODUCT_PACKAGES += \
 	libstagefrighthw \
 	libc2dcolorconvert
 
-PRODUCT_PACKAGES += \
-	libloc_adapter \
-	libloc_eng \
-	libloc_api_v02 \
-	libgps.utils \
-	gps.msm8960
+#PRODUCT_PACKAGES += \
+#	libloc_adapter \
+#	libloc_eng \
+#	libloc_api_v02 \
+#	libgps.utils \
+#	gps.msm8960
 
 PRODUCT_PACKAGES += \
 	bdAddrLoader \

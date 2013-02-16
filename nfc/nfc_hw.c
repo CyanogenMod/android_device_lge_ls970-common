@@ -107,10 +107,10 @@ static uint8_t pn544_eedata_settings[][4] = {
 //end of tuna
 #endif
 
-//e970 (pseudo-mako) specific settings
-//extracted from stock E970 binary nfc.default.so
+//geehrc(pseudo-mako) specific settings
+//extracted from stock geehrc binary nfc.default.so
 //comments for known fields added
-#ifdef mako    
+#ifdef geehrc
     ,{0x00,0x99,0x81,0x7f}
     ,{0x00,0x99,0x31,0x70}
     
@@ -196,7 +196,7 @@ static int nfc_open(const hw_module_t* module, const char* name,
 	dev->device_node = "/dev/ttyO3";
 	dev->enable_i2c_workaround = 0;
 #endif
-#ifdef mako
+#ifdef geehrc
         dev->linktype = PN544_LINK_TYPE_I2C;
 	dev->device_node = "/dev/pn544";
         dev->i2c_device_address = 0x28;
@@ -222,8 +222,8 @@ struct nfc_module_t HAL_MODULE_INFO_SYM = {
 #ifdef tuna
         .name = "Tuna NFC HW HAL",
 #endif
-#ifdef mako
-        .name = "Mako NFC HW HAL",
+#ifdef geehrc
+        .name = "Geehrc NFC HW HAL",
 #endif
         .author = "The Android Open Source Project",
         .methods = &nfc_module_methods,

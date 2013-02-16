@@ -22,12 +22,10 @@
 #define POWER_SUPPLY_PATH "/sys/class/power_supply"
 #define TOUCH_PATH "/sys/devices/virtual/input/lge_touch/charger"
 
-const char* WIRELESS = "change@/devices/platform/bq51051b_wlc/power_supply/wireless";
 const char* USB = "change@/devices/platform/msm_ssbi.0/pm8921-core/pm8921-charger/power_supply/usb";
 
 enum {
     NO_CHARGER,
-    CHARGER_WIRELESS,
     CHARGER_USB,
     CHARGER_AC
 };
@@ -66,22 +64,15 @@ static void handle_uevent(const char* udata)
 {
     const char *str = udata;
     char path[PATH_MAX];
-    char wlc[2], usb[2], ac[2];
+    char usb[2], ac[2];
     int type = NO_CHARGER;
 
-    memset(wlc, 0, 2);
     memset(usb, 0, 2);
     memset(ac, 0, 2);
 
-    if (!strncmp(str, WIRELESS, strlen(WIRELESS))) {
-        snprintf(path, sizeof(path), "%s/wireless/online", POWER_SUPPLY_PATH);
-        read_path(path, wlc, 1);
-        if (!strncmp(wlc, "1", 1))
-            type = CHARGER_WIRELESS;
-
         ALOGE("Type: %d", type);
         write_path(type);
-    } else if (!strncmp(str, USB, strlen(USB))) {
+        (!strncmp(str, USB, strlen(USB))) ;
         snprintf(path, sizeof(path), "%s/usb/online", POWER_SUPPLY_PATH);
         read_path(path, usb, 1);
 
@@ -98,7 +89,6 @@ static void handle_uevent(const char* udata)
         write_path(type);
     }
 
-}
 
 static void event_loop(void)
 {

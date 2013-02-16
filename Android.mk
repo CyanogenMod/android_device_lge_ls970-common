@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter geehrc geehrc_sp,$(TARGET_DEVICE)),)
+ifneq ($(filter geehrc geehrc4g_spr_us,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
@@ -35,8 +35,8 @@ LOCAL_SRC_FILES    := $(LOCAL_MODULE)
 LOCAL_MODULE_PATH  := $(TARGET_OUT_ETC)/wifi
 include $(BUILD_PREBUILT)
 
-
 endif
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
+include $(rootdir/Android.mk)
 
