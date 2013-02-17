@@ -29,7 +29,7 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_PACKAGES := \
-	lights.geehrc
+    lights.geehrc
 
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -37,31 +37,15 @@ PRODUCT_PACKAGES += \
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
-        librs_jni
+    LiveWallpapers \
+    LiveWallpapersPicker \
+    VisualizationWallpapers \
+    librs_jni
 
-# Init Scripts
-PRODUCT_PACKAGES += \
-    init.lge_dut.bt.sh \
-    init.qcom.audio.sh \
-    init.qcom.bt.sh \
-    init.qcom.coex.sh \
-    init.qcom.efs.sync.sh \
-    init.qcom.ftm_module_out.sh \
-    init.qcom.ftm_module.sh \
-    init.qcom.mdm_links.sh \
-    init.qcom.modem_links.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.sdio.sh \
-    init.qcom.thermald_conf.sh \
-    init.qcom.wifi.sh \
-    init.wlan-on-off.sh \
-    thermald-8064.conf \
-    thermald-8930.conf \
-    thermald-8960.conf \
-    vold.fstab    
+# Ramdisk
+PRODUCT_COPY_FILES += \
+        device/lge/gee-common/init.gee.rc:root/init.gee.rc \
+        device/lge/gee-common/init.gee.usb.rc:root/init.gee.usb.rc
 
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -114,7 +98,7 @@ PRODUCT_COPY_FILES += \
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/gps.conf:system/etc/gps.conf
+        device/lge/gee-common/gps.conf:system/etc/gps.conf
 
 # NFC packages geehrc for gee-common
 PRODUCT_PACKAGES += \
@@ -153,9 +137,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.handset.mic=dmic \
 	persist.audio.fluence.mode=endfire \
-	persist.audio.lowlatency.rec=false \
+        persist.audio.lowlatency.rec=false \
 	af.resampler.quality=4
-
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -167,7 +150,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += debug.mdpcomp.maxlayer=3
-
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -202,14 +184,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	power.msm8960
 
-#PRODUCT_COPY_FILES += \
-#	device/lge/gee-common/init.geehrc.bt.sh:system/etc/init.greehrc.bt.sh \
+PRODUCT_COPY_FILES += \
+	device/lge/gee-common/init.gee.bt.sh:system/etc/init.gee.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
 
 PRODUCT_PACKAGES += \
-	camera.geehrc \
 	camera.msm8960 \
 	libmmcamera_interface2 \
 	libmmcamera_interface
@@ -224,12 +205,12 @@ PRODUCT_PACKAGES += \
 	libstagefrighthw \
 	libc2dcolorconvert
 
-#PRODUCT_PACKAGES += \
-#	libloc_adapter \
-#	libloc_eng \
-#	libloc_api_v02 \
-#	libgps.utils \
-#	gps.msm8960
+PRODUCT_PACKAGES += \
+	libloc_adapter \
+	libloc_eng \
+	libloc_api_v02 \
+	libgps.utils \
+	gps.msm8960
 
 PRODUCT_PACKAGES += \
 	bdAddrLoader \
@@ -250,7 +231,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true
+        media.aac_51_output_enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.prerotation.disable=1
@@ -261,11 +242,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-	system/extras/bugmailer/send_bug:system/bin/send_bug
-
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
-

@@ -38,5 +38,4 @@ include $(BUILD_PREBUILT)
 endif
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
-include $(rootdir/Android.mk)
-
+k
