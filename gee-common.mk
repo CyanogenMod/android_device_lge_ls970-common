@@ -97,6 +97,10 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
+# BT init script
+PRODUCT_COPY_FILES += \
+        device/lge/gee-common/init.gee.bt.sh:system/etc/init.gee.bt.sh
+
 # GPS configuration
 PRODUCT_COPY_FILES += \
         device/lge/gee-common/gps.conf:system/etc/gps.conf
@@ -184,9 +188,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
 	power.msm8960
-
-PRODUCT_COPY_FILES += \
-	device/lge/gee-common/init.gee.bt.sh:system/etc/init.gee.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
