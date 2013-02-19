@@ -45,7 +45,8 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
         device/lge/gee-common/ramdisk/init.gee.rc:root/init.gee.rc \
-        device/lge/gee-common/ramdisk/init.gee.usb.rc:root/init.gee.usb.rc
+        device/lge/gee-common/ramdisk/init.gee.usb.rc:root/init.gee.usb.rc \
+        device/lge/gee-common/ramdisk/init.gee.usb.sh:root/init.gee.usb.sh
 
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
