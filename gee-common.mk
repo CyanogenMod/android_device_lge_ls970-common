@@ -108,9 +108,6 @@ PRODUCT_COPY_FILES += \
 
 # NFC packages geehrc for gee-common
 PRODUCT_PACKAGES += \
-    libnfc \
-    libnfc_jni \
-    nfc.geehrc \
     Nfc \
     Tag \
     com.android.nfc_extras
