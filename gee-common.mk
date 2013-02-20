@@ -74,6 +74,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
 	device/lge/gee-common/configs/media_codecs.xml:system/etc/media_codecs.xml
+	device/lge/gee-common/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+	device/lge/gee-common/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
 
 # Non-Ramdisk Init Scripts
 PRODUCT_COPY_FILES += \
