@@ -328,12 +328,12 @@ service ks_checker /system/bin/sh /system/etc/kickstart_checker.sh
     class core
     oneshot
 
-service kickstart /system/bin/qcks 1
+service kickstart /system/bin/qcks -i /firmware/image/ -r /data/tombstones/mdm/
     class core
     user system
     group system
-    oneshot
     disabled
+    oneshot
 
 on property:persist.radio.kickstart=on
     start kickstart
