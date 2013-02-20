@@ -335,11 +335,15 @@ on property:persist.radio.kickstart=on
 service netmgrd /system/bin/netmgrd
     class main
 
-
 service sensors /system/bin/sensors.qcom
     class late_start
     user root
     group root
+
+service qcom-sh /system/bin/sh /init.qcom.sh
+    class late_start
+    user root
+    oneshot
 
 service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
