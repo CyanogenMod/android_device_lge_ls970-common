@@ -208,6 +208,9 @@ on post-fs-data
    chmod 646 /sys/class/leds/green/brightness
    chmod 646 /sys/class/leds/blue/brightness
 
+   # Enable vibrate
+   chown system system /sys/class/timed_output/vibrator/enable
+
    # LED devices
    chown system system /sys/class/leds/led:red/brightness
    chown system system /sys/class/leds/led:red/max_brightness
@@ -235,6 +238,16 @@ on post-fs-data
    chmod 644 /sys/class/leds/led:blue/max_brightness
    chmod 644 /sys/class/leds/button-backlight/brightness
    chmod 644 /sys/class/leds/button-backlight/max_brightness
+
+    # Net permissions
+    chown system system /sys/kernel/ipv4/tcp_wmem_min
+    chown system system /sys/kernel/ipv4/tcp_wmem_def
+    chown system system /sys/kernel/ipv4/tcp_wmem_max
+    chown system system /sys/kernel/ipv4/tcp_rmem_min
+    chown system system /sys/kernel/ipv4/tcp_rmem_def
+    chown system system /sys/kernel/ipv4/tcp_rmem_max
+    chown root radio /proc/cmdline
+    chmod 0444 /proc/cmdline
 
     # communicate with mpdecision and thermald
     mkdir /dev/socket/mpdecision 0770 system system
