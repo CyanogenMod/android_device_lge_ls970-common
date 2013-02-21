@@ -38,6 +38,8 @@
         <item>"wifi_p2p,13,1,0,-1,true"</item>
     </string-array>
 
+<bool name="config_telephony_use_own_number_for_voicemail">true</bool>
+
     <!-- If the DUN connection for this CDMA device supports more than just DUN -->
     <!-- traffic you should list them here. -->
     <!-- If this device is not CDMA this is ignored.  If this list is empty on -->
@@ -48,7 +50,5 @@
         <item>"dun"</item>
         <item>"mms"</item>
         <item>"supl"</item>
-
-<bool name="config_telephony_use_own_number_for_voicemail">true</bool>
     </string-array>
 </resources>
