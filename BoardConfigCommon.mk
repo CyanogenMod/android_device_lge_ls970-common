@@ -34,6 +34,8 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 
 TARGET_NO_BOOTLOADER := true
 
+BOARD_VENDOR := lge
+
 # Compiler Optimizations
 ARCH_ARM_HIGH_OPTIMIZATION := true
 
