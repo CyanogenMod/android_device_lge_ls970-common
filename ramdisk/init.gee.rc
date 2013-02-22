@@ -41,7 +41,7 @@ on init
 
 on fs
     # mount ALL THE THINGS
-    mount_all ./fstab.geehrc
+    mount_all ./fstab.gee
     setprop ro.crypto.fuse_sdcard true
 
 on early-boot
