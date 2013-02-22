@@ -23,7 +23,7 @@
 # *not* include it on all devices, so it is safe even with hardware-specific
 # components.
 
-ifneq ($(filter geehrc geehrc4g_spr_us,$(TARGET_DEVICE)),)
+ifneq ($(filter lge,$(BOARD_VENDOR)),)
 
 LOCAL_PATH := $(call my-dir)
 
