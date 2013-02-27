@@ -26,11 +26,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-service lge-usb-sh /system/bin/sh /init.gee.usb.sh
-    class core
-    user root
-    oneshot
-
 on post-fs-data
     chown system system /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
     chmod 0660 /sys/class/android_usb/android0/f_cdrom_storage/lun/cdrom_usbmode
