@@ -46,39 +46,48 @@ PRODUCT_COPY_FILES += \
         device/lge/gee-common/ramdisk/init.gee.usb.sh:root/init.gee.usb.sh \
         device/lge/gee-common/ramdisk/init.qcom.sh:root/init.qcom.sh
 
+# WiFi
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-	device/lge/gee-common/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-	device/lge/gee-common/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-        device/lge/gee-common/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
-        device/lge/gee-common/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+	device/lge/gee-common/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+	device/lge/gee-common/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+	device/lge/gee-common/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+        device/lge/gee-common/wifi/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
+        device/lge/gee-common/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
+# Audio SND SOC Config
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/lge/gee-common/audio_policy.conf:system/etc/audio_policy.conf
+	device/lge/gee-common/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
 
+# Audio Policy Config
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/thermald-gee-common.conf:system/etc/thermald.conf
+        device/lge/gee-common/configs/audio_policy.conf:system/etc/audio_policy.conf \
 
+# Thermal Daemon
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/gee-common/media_codecs.xml:system/etc/media_codecs.xml
+	device/lge/gee-common/configs/thermald-gee-common.conf:system/etc/thermald.conf
 
+# Media
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/kickstart_checker.sh:system/etc/kickstart_checker.sh
+	device/lge/gee-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/lge/gee-common/configs/media_codecs.xml:system/etc/media_codecs.xml
 
-# Prebuilt kl and kcm keymaps
+# Non-Ramdisk Init Scripts
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
-	device/lge/gee-common/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
-	device/lge/gee-common/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/gee-common/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
-	device/lge/gee-common/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
+	device/lge/gee-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
+        device/lge/gee-common/scripts/init.gee.bt.sh:system/etc/init.gee.bt.sh
 
-# Prebuilt input device calibration files
+# Keylayouts
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/touch_dev.idc:system/usr/idc/touch_dev.idc \
-	device/lge/gee-common/osp3-input.idc:system/usr/idc/osp3-input.idc
+	device/lge/gee-common/keylayouts/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+	device/lge/gee-common/keylayouts/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
+	device/lge/gee-common/keylayouts/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/lge/gee-common/keylayouts/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
+	device/lge/gee-common/keylayouts/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
+
+# Input calibration
+PRODUCT_COPY_FILES += \
+	device/lge/gee-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
+	device/lge/gee-common/input/osp3-input.idc:system/usr/idc/osp3-input.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -97,13 +106,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
-# BT init script
-PRODUCT_COPY_FILES += \
-        device/lge/gee-common/init.gee.bt.sh:system/etc/init.gee.bt.sh
-
 # GPS configuration
 PRODUCT_COPY_FILES += \
-        device/lge/gee-common/gps.conf:system/etc/gps.conf
+        device/lge/gee-common/configs/gps.conf:system/etc/gps.conf
 
 # NFC packages geehrc for gee-common
 PRODUCT_PACKAGES += \
