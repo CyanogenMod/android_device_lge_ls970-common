@@ -79,7 +79,7 @@ TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 TARGET_USES_SF_BYPASS := true
 TARGET_USES_C2D_COMPOSITION := true
-BOARD_EGL_CFG := device/lge/gee-common/egl.cfg
+BOARD_EGL_CFG := device/lge/gee-common/configs/egl.cfg
 
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_geehrc

@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/configs/thermald-gee-common.conf:system/etc/thermald.conf
 
+# EGL Config
+PRODUCT_COPY_FILES += \
+        device/lge/gee-common/configs/egl.cfg:system/lib/egl/egl.cfg
+
 # Media
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
@@ -86,7 +90,7 @@ PRODUCT_COPY_FILES += \
 
 # Input calibration
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
+        device/lge/gee-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
 	device/lge/gee-common/input/osp3-input.idc:system/usr/idc/osp3-input.idc
 
 # These are the hardware-specific features
