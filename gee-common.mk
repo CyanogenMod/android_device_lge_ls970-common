@@ -73,14 +73,14 @@ PRODUCT_COPY_FILES += \
 # Media
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/gee-common/configs/media_codecs.xml:system/etc/media_codecs.xml
-	device/lge/gee-common/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-	device/lge/gee-common/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
+	device/lge/gee-common/configs/media_codecs.xml:system/etc/media_codecs.xml 
 
 # Non-Ramdisk Init Scripts
 PRODUCT_COPY_FILES += \
 	device/lge/gee-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
-        device/lge/gee-common/scripts/init.gee.bt.sh:system/etc/init.gee.bt.sh
+        device/lge/gee-common/scripts/init.gee.bt.sh:system/etc/init.gee.bt.sh \
+	device/lge/gee-common/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+	device/lge/gee-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
