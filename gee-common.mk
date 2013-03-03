@@ -158,7 +158,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
 
 #Upto 3 layers can go through overlays
-PRODUCT_PROPERTY_OVERRIDES += debug.mdpcomp.maxlayer=3
+PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -202,8 +202,7 @@ PRODUCT_PACKAGES += \
 	libmmcamera_interface
 
 PRODUCT_PACKAGES += \
-	mm-vdec-omx-test \
-	mm-venc-omx-test720p \
+        libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \
 	libOmxVenc \
@@ -221,8 +220,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	bdAddrLoader \
 	libwfcu \
-	conn_init \
-	charger_touch
+	conn_init
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	rild.libpath=/system/lib/libril-qc-qmi-1.so
