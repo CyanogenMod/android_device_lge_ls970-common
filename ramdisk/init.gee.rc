@@ -180,6 +180,8 @@ on post-fs-data
     mkdir /data/qcks 0770 system system
     chown system /dev/block/platform/msm_sdcc.1/by-name
     symlink /dev/efs_bridge /dev/efs_bri
+    chmod 775 /system/etc/init.qcom.modem_links.sh
+    chmod 775 /system/etc/init.qcom.mdm_links.sh
     exec /system/bin/sh /system/etc/init.qcom.modem_links.sh
     exec /system/bin/sh /system/etc/init.qcom.mdm_links.sh
 
