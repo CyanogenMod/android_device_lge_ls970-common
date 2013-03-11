@@ -40,6 +40,9 @@ BOARD_VENDOR := lge
 # Compiler Optimizations
 ARCH_ARM_HIGH_OPTIMIZATION := true
 
+# Enable various prefetch optimizations
+COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
+
 BOARD_USES_ALSA_AUDIO:= true
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
