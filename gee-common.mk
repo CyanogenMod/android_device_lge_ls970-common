@@ -159,6 +159,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
 
+# QC RIL path for rild
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/lib/libril-qc-qmi-1.so
+
+# About Phone / Hardware Info
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.device.chipset=Qualcomm Snapdragon S4 Pro APQ8064 + MDM9615 \
+    ro.device.cpu=1.5 GHz quad-core Krait \
+    ro.device.gpu=Qualcomm Adreno 320 \
+    ro.device.front_cam=1.3 MP \
+    ro.device.screen_res=768x1280
+
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
