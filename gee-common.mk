@@ -80,7 +80,8 @@ PRODUCT_COPY_FILES += \
 	device/lge/gee-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
         device/lge/gee-common/scripts/init.gee.bt.sh:system/etc/init.gee.bt.sh \
 	device/lge/gee-common/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-	device/lge/gee-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
+ 	device/lge/gee-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	device/lge/gee-common/scripts/efsbackup.sh:system/bin/efsbackup.sh
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
