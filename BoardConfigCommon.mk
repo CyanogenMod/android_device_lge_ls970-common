@@ -115,6 +115,4 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/gee-common
 
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
--include vendor/lge/geehrc_sp/BoardConfigVendor.mk
-
 BOARD_HAS_NO_SELECT_BUTTON := true
