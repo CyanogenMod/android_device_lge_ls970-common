@@ -116,10 +116,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
-# GPS configuration
-PRODUCT_COPY_FILES += \
-        device/lge/gee-common/configs/gps.conf:system/etc/gps.conf
-
 # NFC packages geehrc for gee-common
 PRODUCT_PACKAGES += \
     libnfc \
