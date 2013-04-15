@@ -142,6 +142,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
 
+# Script for baseband name resolution
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/fetch-swv:system/bin/fetch-swv
+
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072
 
