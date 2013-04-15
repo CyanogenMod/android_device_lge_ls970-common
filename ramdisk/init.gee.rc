@@ -461,6 +461,10 @@ service logcat /system/bin/logcat -f /data/media/logcat
     class main
     oneshot
 
+service fetch-swv /system/bin/fetch-swv
+    class late_start
+    oneshot
+
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
 
