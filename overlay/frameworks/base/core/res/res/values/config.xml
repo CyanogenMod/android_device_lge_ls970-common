@@ -18,14 +18,13 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- If this value is true, The mms content-disposition field is supported correctly. If false, Content-disposition fragments are ignored -->
+    <bool name="config_mms_content_disposition_support">false</bool>
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
 
-    <!-- Default color for notification LED is white. -->
-    <color name="config_defaultNotificationColor">#ff0000</color>
-
-    <!-- Default LED on time for notification LED in milliseconds. -->
+     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">500</integer>
 
     <!-- Default LED off time for notification LED in milliseconds. -->
@@ -100,22 +99,6 @@
         <item>255</item>
         <item>255</item>
     </integer-array>
-    <!-- Nexus 4 does not have virtual keys
-    <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-        <item>0</item>
-    </integer-array>
-	-->
 
     <!-- Minimum screen brightness allowed by the power manager. -->
     <integer name="config_screenBrightnessDim">1</integer>
