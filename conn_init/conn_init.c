@@ -30,7 +30,6 @@ static int wifi_check_qcom_cfg_files()
 
     // Read MAC String
     FILE *fp = NULL;
-    int n = 0;
     fp = fopen("/dev/block/platform/msm_sdcc.1/by-name/misc", "r");
     if ( fp == NULL )
     {
@@ -41,7 +40,7 @@ static int wifi_check_qcom_cfg_files()
     {
         unsigned char macbuf[6];
 	fseek(fp,0x3000,SEEK_SET);
-	n = fread(macbuf, 6, 1, fp);
+	fread(macbuf, 6, 1, fp);
 	sprintf(macAddress,"%02x%02x%02x%02x%02x%02x",
 		macbuf[0], macbuf[1], macbuf[2],
 		macbuf[3], macbuf[4], macbuf[5]);
