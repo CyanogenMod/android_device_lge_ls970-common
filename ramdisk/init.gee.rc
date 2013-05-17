@@ -307,6 +307,11 @@ service rmt_storage /system/bin/rmt_storage
     class main
     user root
 
+service config_bluetooth /system/bin/sh /system/etc/init.gee.bt.sh "onboot"
+    class core
+    user root
+    oneshot
+
 service hciattach /system/bin/sh /system/etc/init.gee.bt.sh
     class late_start
     user bluetooth
