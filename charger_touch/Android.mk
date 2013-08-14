@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifneq ($(filter geehrc geehrc4g_spr_us geeb geeb_att_us,$(TARGET_DEVICE)),)
+ifneq ($(filter e970 e973 ls970,$(TARGET_DEVICE)),)
 
 LOCAL_PATH:= $(call my-dir)
 

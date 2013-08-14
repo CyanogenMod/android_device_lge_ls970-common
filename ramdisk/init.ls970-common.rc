@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-import init.gee.usb.rc
+import init.ls970-common.usb.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -24,10 +24,6 @@ on init
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
 
-on fs
-    # mount ALL THE THINGS
-    mount_all ./fstab.gee
-    setprop ro.crypto.fuse_sdcard true
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -307,12 +303,12 @@ service rmt_storage /system/bin/rmt_storage
     class main
     user root
 
-service config_bluetooth /system/bin/sh /system/etc/init.gee.bt.sh "onboot"
+service config_bluetooth /system/bin/sh /system/etc/init.ls970.bt.sh "onboot"
     class core
     user root
     oneshot
 
-service hciattach /system/bin/sh /system/etc/init.gee.bt.sh
+service hciattach /system/bin/sh /system/etc/init.ls970.bt.sh
     class late_start
     user bluetooth
     group qcom_oncrpc bluetooth net_bt_admin system

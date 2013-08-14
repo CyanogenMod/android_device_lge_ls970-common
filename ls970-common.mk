@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL gee-common devices, and
-# are also specific to gee-common devices
+# This file includes all definitions that apply to ALL ls970-common devices, and
+# are also specific to ls970-common devices
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/gee-common/overlay
+DEVICE_PACKAGE_OVERLAYS := device/lge/ls970-common/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -44,59 +44,59 @@ PRODUCT_PACKAGES += Torch
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-        device/lge/gee-common/ramdisk/init.gee.rc:root/init.gee.rc \
-        device/lge/gee-common/ramdisk/init.gee.usb.rc:root/init.gee.usb.rc \
-        device/lge/gee-common/ramdisk/init.qcom.sh:root/init.qcom.sh
+        device/lge/ls970-common/ramdisk/init.ls970-common.rc:root/init.ls970-common.rc \
+        device/lge/ls970-common/ramdisk/init.ls970-common.usb.rc:root/init.ls970-common.usb.rc \
+        device/lge/ls970-common/ramdisk/init.qcom.sh:root/init.qcom.sh
 
 # WiFi
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-	device/lge/gee-common/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-	device/lge/gee-common/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-        device/lge/gee-common/wifi/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
-        device/lge/gee-common/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+	device/lge/ls970-common/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+	device/lge/ls970-common/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+	device/lge/ls970-common/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+        device/lge/ls970-common/wifi/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
+        device/lge/ls970-common/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Audio SND SOC Config
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
+	device/lge/ls970-common/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
 
 # Audio Policy Config
 PRODUCT_COPY_FILES += \
-        device/lge/gee-common/configs/audio_policy.conf:system/etc/audio_policy.conf \
+        device/lge/ls970-common/configs/audio_policy.conf:system/etc/audio_policy.conf \
 
 # Thermal Daemon
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/configs/thermald-gee-common.conf:system/etc/thermald.conf
+	device/lge/ls970-common/configs/thermald-ls970-common.conf:system/etc/thermald.conf
 
 # EGL Config
 PRODUCT_COPY_FILES += \
-        device/lge/gee-common/configs/egl.cfg:system/lib/egl/egl.cfg
+        device/lge/ls970-common/configs/egl.cfg:system/lib/egl/egl.cfg
 
 # Media
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/gee-common/configs/media_codecs.xml:system/etc/media_codecs.xml 
+	device/lge/ls970-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/lge/ls970-common/configs/media_codecs.xml:system/etc/media_codecs.xml 
 
 # Non-Ramdisk Init Scripts
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
-        device/lge/gee-common/scripts/init.gee.bt.sh:system/etc/init.gee.bt.sh \
-	device/lge/gee-common/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
- 	device/lge/gee-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-	device/lge/gee-common/scripts/efsbackup.sh:system/bin/efsbackup.sh
+	device/lge/ls970-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
+        device/lge/ls970-common/scripts/init.ls970.bt.sh:system/etc/init.ls970.bt.sh \
+	device/lge/ls970-common/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+ 	device/lge/ls970-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	device/lge/ls970-common/scripts/efsbackup.sh:system/bin/efsbackup.sh
 
 # Keylayouts
 PRODUCT_COPY_FILES += \
-	device/lge/gee-common/keylayouts/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
-	device/lge/gee-common/keylayouts/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
-	device/lge/gee-common/keylayouts/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/gee-common/keylayouts/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
-	device/lge/gee-common/keylayouts/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
+	device/lge/ls970-common/keylayouts/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+	device/lge/ls970-common/keylayouts/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
+	device/lge/ls970-common/keylayouts/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/lge/ls970-common/keylayouts/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
+	device/lge/ls970-common/keylayouts/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
 
 # Input calibration
 PRODUCT_COPY_FILES += \
-        device/lge/gee-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
-	device/lge/gee-common/input/osp3-input.idc:system/usr/idc/osp3-input.idc
+        device/lge/ls970-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
+	device/lge/ls970-common/input/osp3-input.idc:system/usr/idc/osp3-input.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -117,7 +117,7 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml
 
-# NFC packages geehrc for gee-common
+# NFC packages ls970-common
 PRODUCT_PACKAGES += \
     libnfc \
     libnfc_jni \
@@ -127,9 +127,9 @@ PRODUCT_PACKAGES += \
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := device/lge/ls970-common/nfc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/lge/gee-common/nfc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := device/lge/ls970-common/nfc/nfcee_access_debug.xml
 endif
 
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc

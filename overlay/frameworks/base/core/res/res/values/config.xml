@@ -256,7 +256,7 @@
          If the span is equal to or greater than this size, a scaling gesture
          will begin, where supported. (See android.view.ScaleGestureDetector)
 
-         This value has been tuned for the "geehrc" device. -->
+         This value has been tuned for the "ls970" device. -->
     <dimen name="config_minScalingSpan">35mm</dimen>
 
     <!-- Setting this true forces the headset jack switches to use the/dev/input/event subsystem
