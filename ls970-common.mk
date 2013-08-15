@@ -185,6 +185,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	e2fsck
 
+# lights
+PRODUCT_PACKAGES += \
+	lights.msm8960
+
 PRODUCT_PACKAGES += \
 	libgenlock \
 	liboverlay \
