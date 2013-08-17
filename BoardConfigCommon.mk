@@ -50,9 +50,9 @@ COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 TARGET_SPECIFIC_HEADER_PATH := device/lge/ls970-common/include
 
 BOARD_USES_ALSA_AUDIO:= true
+BOARD_USES_LEGACY_ALSA_AUDIO:= false
 BOARD_USES_FLUENCE_INCALL := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
-BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -84,6 +84,11 @@ WIFI_DRIVER_FW_PATH_AP  := "ap"
 # BOARD_USES_QCOM_HARDWARE := true
 #BOARD_USES_HGL := true
 #BOARD_USES_OVERLAY := true
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP_CAMERA_ABI_HACK -DQCOM_BSP
+TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_DISPLAY_USE_RETIRE_FENCE := true
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
@@ -91,8 +96,9 @@ TARGET_USES_SF_BYPASS := true
 TARGET_USES_C2D_COMPOSITION := true
 BOARD_EGL_CFG := device/lge/ls970-common/configs/egl.cfg
 
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_$(PRODUCT_DEVICE)
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+RECOVERY_FSTAB_VERSION = 2
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 23068672 # 22M
@@ -103,6 +109,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 6189744128 # 5.9G
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 BOARD_USES_SECURE_SERVICES := true
+
+BOARD_CHARGER_ENABLE_SUSPEND := true
 
 BOARD_USES_EXTRA_THERMAL_SENSOR := true
 BOARD_USES_CAMERA_FAST_AUTOFOCUS := true
@@ -119,3 +127,40 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/ls970-common
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
+
+BOARD_SEPOLICY_DIRS += \
+        device/lge/ls970-common/sepolicy
+
+BOARD_RIL_CLASS := ../../../device/lge/e975/ril/
+
+BOARD_SEPOLICY_UNION += \
+	file_contexts \
+	property_contexts \
+	te_macros \
+	bluetooth_loader.te \
+	bridge.te \
+	camera.te \
+	conn_init.te \
+	device.te \
+	dhcp.te \
+	domain.te \
+	drmserver.te \
+	file.te \
+	kickstart.te \
+	init.te \
+	mediaserver.te \
+	mpdecision.te \
+	netmgrd.te \
+	property.te \
+	qmux.te \
+	rild.te \
+	rmt.te \
+	sensors.te \
+	surfaceflinger.te \
+	system.te \
+	tee.te \
+	thermald.te \
+	ueventd.te \
+	wpa_supplicant.te
+
+BOARD_HARDWARE_CLASS := device/lge/ls970-common/cmhw/

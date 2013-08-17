@@ -19,7 +19,7 @@
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/lge/ls970-common/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -44,59 +44,66 @@ PRODUCT_PACKAGES += Torch
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-        device/lge/ls970-common/ramdisk/init.ls970-common.rc:root/init.ls970-common.rc \
-        device/lge/ls970-common/ramdisk/init.ls970-common.usb.rc:root/init.ls970-common.usb.rc \
-        device/lge/ls970-common/ramdisk/init.qcom.sh:root/init.qcom.sh
+        $(LOCAL_PATH)/ramdisk/init.ls970-common.rc:root/init.ls970-common.rc \
+        $(LOCAL_PATH)/ramdisk/init.ls970-common.usb.rc:root/init.ls970-common.usb.rc \
+        $(LOCAL_PATH)/ramdisk/init.qcom.sh:root/init.qcom.sh
 
 # WiFi
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
-	device/lge/ls970-common/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-	device/lge/ls970-common/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-        device/lge/ls970-common/wifi/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
-        device/lge/ls970-common/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+	$(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+	$(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
+	$(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+        $(LOCAL_PATH)/wifi/wpa_supplicant.conf:obj/etc/wifi/wpa_supplicant.conf \
+        $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 # Audio SND SOC Config
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
+	$(LOCAL_PATH)/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3
 
 # Audio Policy Config
 PRODUCT_COPY_FILES += \
-        device/lge/ls970-common/configs/audio_policy.conf:system/etc/audio_policy.conf \
+        $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+
+PRODUCT_COPY_FILES += \
+        $(LOCAL_PATH)/configs/mixer_paths.xml:system/etc/mixer_paths.xml
 
 # Thermal Daemon
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/configs/thermald-ls970-common.conf:system/etc/thermald.conf
+	$(LOCAL_PATH)/configs/thermald-ls970-common.conf:system/etc/thermald.conf
 
 # EGL Config
 PRODUCT_COPY_FILES += \
-        device/lge/ls970-common/configs/egl.cfg:system/lib/egl/egl.cfg
+        $(LOCAL_PATH)/configs/egl.cfg:system/lib/egl/egl.cfg
 
 # Media
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/lge/ls970-common/configs/media_codecs.xml:system/etc/media_codecs.xml 
+	$(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	$(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml 
 
 # Non-Ramdisk Init Scripts
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
-        device/lge/ls970-common/scripts/init.ls970.bt.sh:system/etc/init.ls970.bt.sh \
-	device/lge/ls970-common/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
- 	device/lge/ls970-common/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-	device/lge/ls970-common/scripts/efsbackup.sh:system/bin/efsbackup.sh
+	$(LOCAL_PATH)/scripts/kickstart_checker.sh:system/etc/kickstart_checker.sh \
+        $(LOCAL_PATH)/scripts/init.ls970.bt.sh:system/etc/init.ls970.bt.sh \
+	$(LOCAL_PATH)/scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+ 	$(LOCAL_PATH)/scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	$(LOCAL_PATH)/scripts/efsbackup.sh:system/bin/efsbackup.sh
 
-# Keylayouts
+# 
+# Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/lge/ls970-common/keylayouts/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
-	device/lge/ls970-common/keylayouts/external_kbd.kl:system/usr/keylayout/external_kbd.kl \
-	device/lge/ls970-common/keylayouts/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/lge/ls970-common/keylayouts/MHLRCP.kl:system/usr/keylayout/MHLRCP.kl \
-	device/lge/ls970-common/keylayouts/osp3-input.kl:system/usr/keylayout/osp3-input.kl 
+	$(LOCAL_PATH)/keylayouts/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	$(LOCAL_PATH)/keylayouts/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	$(LOCAL_PATH)/keylayouts/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	$(LOCAL_PATH)/keylayouts/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	$(LOCAL_PATH)/keylayouts/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	$(LOCAL_PATH)/keylayouts/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	$(LOCAL_PATH)/keylayouts/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	$(LOCAL_PATH)/keylayouts/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
 
 # Input calibration
 PRODUCT_COPY_FILES += \
-        device/lge/ls970-common/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
-	device/lge/ls970-common/input/osp3-input.idc:system/usr/idc/osp3-input.idc
+	$(LOCAL_PATH)/input/touch_dev.idc:system/usr/idc/touch_dev.idc \
+	$(LOCAL_PATH)/input/touch_dev.kl:system/usr/keylayout/touch_dev.kl
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -127,9 +134,9 @@ PRODUCT_PACKAGES += \
 
 # NFCEE access control
 ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/lge/ls970-common/nfc/nfcee_access.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access.xml
 else
-    NFCEE_ACCESS_PATH := device/lge/ls970-common/nfc/nfcee_access_debug.xml
+    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/nfc/nfcee_access_debug.xml
 endif
 
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
@@ -155,10 +162,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio Configuration
 PRODUCT_PROPERTY_OVERRIDES += \
+	persist.audio.handset.mic.type=digital \
+	persist.audio.dualmic.config=endfire \
+	persist.audio.fluence.voicecall=true \
 	persist.audio.handset.mic=dmic \
 	persist.audio.fluence.mode=endfire \
-        persist.audio.lowlatency.rec=false \
+	persist.audio.lowlatency.rec=false \
 	af.resampler.quality=4
+
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -171,6 +182,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # QC RIL path for rild
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-qmi-1.so 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.telephony.ril.v3=qcomdsds
 
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
@@ -197,20 +211,23 @@ PRODUCT_PACKAGES += \
 	copybit.msm8960
 
 PRODUCT_PACKAGES += \
-	alsa.msm8960 \
-	audio_policy.msm8064 \
+	audio_policy.msm8960 \
 	audio.primary.msm8960 \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default \
 	libaudio-resampler
 
+# Voice processing
+PRODUCT_PACKAGES += libqcomvoiceprocessing
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
-PRODUCT_PACKAGES += \
-	power.msm8960
+#PRODUCT_PACKAGES += \
+#	power.msm8960
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
@@ -236,9 +253,11 @@ PRODUCT_PACKAGES += \
 	gps.msm8960
 
 PRODUCT_PACKAGES += \
-	bdAddrLoader \
 	libwfcu \
 	conn_init
+
+PRODUCT_PACKAGES += \
+	keystore.msm8960
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
@@ -258,7 +277,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         debug.egl.recordable.rgba8888=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.qc.sensors.wl_dis=true \
+	ro.qualcomm.sensors.smd=true
+
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
+$(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+# This is the mako-specific audio package
+$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
