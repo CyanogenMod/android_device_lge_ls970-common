@@ -110,7 +110,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SEPOLICY_DIRS += \
         device/lge/ls970-common/sepolicy
 
-BOARD_RIL_CLASS := ../../../device/lge/e975/ril/
+BOARD_RIL_CLASS := ../../../device/lge/ls970-common/ril/
 
 BOARD_SEPOLICY_UNION += \
 	file_contexts \
