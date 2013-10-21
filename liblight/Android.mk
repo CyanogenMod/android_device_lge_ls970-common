@@ -12,8 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ifneq ($(filter e970 e973 ls970,$(TARGET_DEVICE)),)
-
 LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
@@ -23,9 +21,8 @@ LOCAL_SRC_FILES := lights.c
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_CFLAGS := $(common_flags) -DLOG_TAG=\"qdlights\"
-LOCAL_MODULE := lights.$(PRODUCT_DEVICE)
+LOCAL_MODULE := lights.geehrc
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
-endif
