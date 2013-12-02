@@ -98,10 +98,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=320
 
-# Our Modem responds slowly
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.telephony.slowModem=1
-
 # QC RIL path for rild
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     rild.libpath=/system/lib/libril-qc-qmi-1.so 
