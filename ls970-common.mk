@@ -133,8 +133,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.prerotation.disable=1
 
-#Override gpro-common's fetch-swv
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/fetch-swv:system/bin/fetch-swv
-
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
