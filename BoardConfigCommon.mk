@@ -74,3 +74,5 @@ BOARD_SEPOLICY_UNION := \
 
 # Use caf since e975 uses it
 TARGET_QCOM_AUDIO_VARIANT := caf
+
+BOARD_HARDWARE_CLASS += device/lge/ls970-common/cmhw
