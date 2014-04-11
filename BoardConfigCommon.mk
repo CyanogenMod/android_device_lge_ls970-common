@@ -71,3 +71,6 @@ BOARD_SEPOLICY_UNION := \
         system.te \
         ueventd.te \
         wpa.te
+
+# Use caf since e975 uses it
+TARGET_QCOM_AUDIO_VARIANT := caf
