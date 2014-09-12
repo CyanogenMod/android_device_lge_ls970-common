@@ -45,8 +45,6 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/ls970-common
 
--include vendor/lge/e975/BoardConfigVendor.mk
-
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 BOARD_SEPOLICY_DIRS += \
