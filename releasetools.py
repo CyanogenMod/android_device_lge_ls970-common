@@ -19,7 +19,7 @@ import common
 def RunEFSBackup(self):
     self.script.AppendExtra('ui_print("Backing Up EFS Partitions to /sdcard/EFS_BACKUPS/");')
     self.script.AppendExtra('package_extract_file("system/bin/efsbackup.sh", "/tmp/efsbackup.sh");')
-    self.script.AppendExtra('set_perm(0, 0, 0777, "/tmp/efsbackup.sh");')
+    self.script.AppendExtra('set_metadata("/tmp/efsbackup.sh","uid", 0, "gid", 0, "mode", 0755);')
     self.script.AppendExtra('run_program("/tmp/efsbackup.sh");')
     self.script.AppendExtra('ui_print("Finished Backing Up EFS Partitions");')
 
