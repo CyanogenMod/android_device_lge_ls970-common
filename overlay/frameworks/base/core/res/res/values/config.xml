@@ -91,5 +91,5 @@
          This feature should be disabled for most devices. -->
     <integer name="config_virtualKeyQuietTimeMillis">250</integer>
 
-    <!--integer name="config_deviceHardwareKeys">7</integer-->
+    <integer name="config_deviceHardwareKeys">7</integer>
 </resources>
